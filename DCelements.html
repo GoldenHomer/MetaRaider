@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Very Important for Internet Explorer compatibility-->
+	<meta HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+	<meta HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+	<meta NAME="ROBOTS" CONTENT="NONE"> 
+	<meta NAME="GOOGLEBOT" CONTENT="NOARCHIVE">
+	<meta charset="utf-8">
+	<title>Dublin Core Old Metadata Element Set</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/jquery-ui.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="container">
+	
+		<select style="background:#f6f693" onchange="location = this.options[this.selectedIndex].value;" style="float:right; margin-top: 20px;">
+			<option></option>
+			<option value="DCterms.html">Dublin Core Metadata Initiative (DCMI) Metadata Terms</option>
+			<option value="simpleDWC.html">Simple Darwin Core</option>
+			<option value="DCtest.html">Darwin Core</option>
+			<option value="AgMES.html">AgMES</option>
+		</select>
+		
+		<div class="header clearfix">
+			<h1 class="text-muted">Dublin Core Elements to XML Translation</h1>
+		</div>
+		
+		<div class="btn-group" role="group">
+			
+			<div class="btn-group">
+				<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Add Element 
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li id="0" value="contributor"><a class="element"href="#" title="An entity responsible for making contributions to the resource.">Contributor</a></li>
+					<li id="1" value="coverage"><a class="element" href="#" title="The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.">Coverage</a></li>
+					<li id="2" value="creator"><a class="element" href="#" title=" 	An entity primarily responsible for making the resource.">Creator</a></li>
+					<li id="3" value="date"><a class="element" href="#" title="A point or period of time associated with an event in the lifecycle of the resource.">Date</a></li>
+					<li id="4" value="description"><a class="element" href="#" title="An account of the resource.">Description</a></li>
+					<li id="5" value="format"><a class="element" href="#" title="The file format, physical medium, or dimensions of the resource.">Format</a></li>
+					<li id="6" value="identifier"><a class="element" href="#" title="An unambiguous reference to the resource within a given context.">Identifier</a></li>
+					<li id="7" value="language"><a class="element" href="#" title="A language of the resource.">Language</a></li>
+					<li id="8" value="publisher"><a class="element" href="#" title="An entity responsible for making the resource available.">Publisher</a></li>
+					<li id="9" value="relation"><a class="element" href="#" title="A related resource.">Relation</a></li>
+					<li id="10" value="rights"><a class="element" href="#" title="Information about rights held in and over the resource.">Rights</a></li>
+					<li id="11" value="source"><a class="element" href="#" title="A related resource from which the described resource is derived.">Source</a></li>
+					<li id="12" value="subject"><a class="element" href="#" title="The topic of the resource.">Subject</a></li>
+					<li id="13" value="title"><a class="element" href="#" title="A name given to the resource.">Title</a></li>
+					<li id="14" value="type"><a class="element" href="#" title="The nature or genre of the resource.">Type</a></li>
+				</ul>
+			</div>
+			
+			<button type="button" class="btn btn-primary" id="elementsBtn">Show All Elements</button>
+		</div>
+		
+	  	<!-- Display element and term fields. Elements on left, terms on right -->
+		<div class="row">
+			<div class="col-sm-12" id="element"></div>
+		</div>
+		
+		<!-- Hidden recommended elements -->
+			<form class="form-horizontal" id="elements">
+				<div class="well well-lg row">
+				  <h2>All Elements</h2>
+				  
+				  <div class="col-sm-4">
+					  <div class="form-group element">
+						<label for="contributor" class="col-sm-3 control-label">Contributor<img src='img/help.png' title='An entity responsible for making contributions to the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+						<div class="col-sm-5">
+						  <input type="text" class="form-control all" id="contributor">
+						</div>
+						<a href='#' class='remove_field'>Remove</a>
+					  </div>
+					  
+					  <div class="form-group element">
+						<label for="coverage" class="col-sm-3 control-label">Coverage<img src='img/help.png' title='The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.' height='20' width='20' style='margin-left: 5%'></img></label>
+						<div class="col-sm-5">
+						  <input type="text" class="form-control all" id="coverage">
+						</div>
+						<a href='#' class='remove_field'>Remove</a>
+					  </div>
+					  
+					  <div class="form-group element">
+						<label for="creator" class="col-sm-3 control-label">Creator<img src='img/help.png' title='An entity primarily responsible for making the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+						<div class="col-sm-5">
+						  <input type="text" class="form-control all" id="creator">
+						</div>
+						<a href='#' class='remove_field'>Remove</a>
+					  </div>
+					  
+					  <div class="form-group element">
+						<label for="date" class="col-sm-3 control-label">Date<img src='img/help.png' title='A point or period of time associated with an event in the lifecycle of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+						<div class="col-sm-5">
+						  <input type="text" class="form-control all" id="date">
+						</div>
+						<a href='#' class='remove_field'>Remove</a>
+					  </div>
+					  
+					  <div class="form-group element">
+						<label for="description" class="col-sm-3 control-label">Description<img src='img/help.png' title='An account of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+						<div class="col-sm-5">
+						  <input type="text" class="form-control all" id="description">
+						</div>
+						<a href='#' class='remove_field'>Remove</a>
+					  </div>
+				  </div>
+				  
+				  <div class="col-sm-4">
+					  <div class="form-group element">
+						<label for="format" class="col-sm-3 control-label">Format<img src='img/help.png' title='The file format, physical medium, or dimensions of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+						<div class="col-sm-5">
+						  <input type="text" class="form-control all" id="format">
+						</div>
+						<a href='#' class='remove_field'>Remove</a>
+					  </div>
+					  
+					  <div class="form-group element">
+						<label for="identifier" class="col-sm-3 control-label">Identifier<img src='img/help.png' title='An unambiguous reference to the resource within a given context.' height='20' width='20' style='margin-left: 5%'></img></label>
+						<div class="col-sm-5">
+						  <input type="text" class="form-control all" id="identifier">
+						</div>
+						<a href='#' class='remove_field'>Remove</a>
+					  </div>
+					  
+					  <div class="form-group element">
+						<label for="language" class="col-sm-3 control-label">Language<img src='img/help.png' title='A language of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+						<div class="col-sm-5">
+						  <input type="text" class="form-control all" id="language">
+						</div>
+						<a href='#' class='remove_field'>Remove</a>
+					  </div>
+					  
+					  <div class="form-group element">
+						<label for="publisher" class="col-sm-3 control-label">Publisher<img src='img/help.png' title='An entity responsible for making the resource available.' height='20' width='20' style='margin-left: 5%'></img></label>
+						<div class="col-sm-5">
+						  <input type="text" class="form-control all" id="publisher">
+						</div>
+						<a href='#' class='remove_field'>Remove</a>
+					  </div>
+					  
+					  <div class="form-group element">
+						<label for="relation" class="col-sm-3 control-label">Relation<img src='img/help.png' title='A related resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+						<div class="col-sm-5">
+						  <input type="text" class="form-control all" id="relation">
+						</div>
+						<a href='#' class='remove_field'>Remove</a>
+					  </div>
+				  </div>
+				  
+				  
+				  <div class="col-sm-4">
+				  
+					  <div class="form-group element">
+						<label for="rights" class="col-sm-3 control-label">Rights<img src='img/help.png' title='Information about rights held in and over the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+						<div class="col-sm-5">
+						  <input type="text" class="form-control all" id="rights">
+						</div>
+						<a href='#' class='remove_field'>Remove</a>
+					  </div>
+					  
+					  <div class="form-group element">
+						<label for="source" class="col-sm-3 control-label">Source<img src='img/help.png' title='A related resource from which the described resource is derived.' height='20' width='20' style='margin-left: 5%'></img></label>
+						<div class="col-sm-5">
+						  <input type="text" class="form-control all" id="source">
+						</div>
+						<a href='#' class='remove_field'>Remove</a>
+					  </div>
+					  
+					  <div class="form-group element">
+						<label for="subject" class="col-sm-3 control-label">Subject<img src='img/help.png' title='The topic of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+						<div class="col-sm-5">
+						  <input type="text" class="form-control all" id="subject">
+						</div>
+						<a href='#' class='remove_field'>Remove</a>
+					  </div>
+					  
+					  <div class="form-group element">
+						<label for="title" class="col-sm-3 control-label">Title<img src='img/help.png' title='A name given to the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+						<div class="col-sm-5">
+						  <input type="text" class="form-control all" id="title">
+						</div>
+						<a href='#' class='remove_field'>Remove</a>
+					  </div>
+					  
+					  <div class="form-group element">
+						<label for="type" class="col-sm-3 control-label">Type<img src='img/help.png' title='The nature or genre of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+						<div class="col-sm-5">
+						  <input type="text" class="form-control all" id="type">
+						</div>
+						<a href='#' class='remove_field'>Remove</a>
+					  </div>
+					  
+				  </div>
+				</div>
+			</form>
+		<!-- End hidden elements-->
+		
+		<button class="btn btn-success" id="DownloadButton" type="button">Generate XML</button>
+		<br>
+		<br>
+		
+		<div class="well" id="generated" style="display:none">
+		  <h2>XML Output</h2>
+		  
+		  <textarea id="ResultXml" style="width: 75%; height: 30em; margin-top: 10px" readonly="readonly"></textarea><br>
+		  
+		  <h3>Name of download file:</h3>
+		  <input type="text" id="fileName" value="">.xml
+		  <a class="btn btn-info btn-sm" role="button" onclick="saveFileName()">Save file name</a>
+		  <br>
+		  <br>
+		  
+		  <a href="#" class="btn btn-success" id="DownloadLink" role="button">Download file</a>
+		</div>
+	</div>
+	
+	<script src="js/processing.min.js"></script>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/DublinCore/OldElements/xml.js"></script>
+	<script src="js/DublinCore/OldElements/frontEnd.js"></script>
+	<script src="js/jquery-ui-1.11.4.js"></script>
+	
+	<!-- Below shows the mouseover term descriptions-->
+	<script>
+		$(function(){
+			$(document).tooltip({
+				show: {duration: 1000},
+				position: {my: "right+5 center", at: "left center"}
+			});
+		});
+	</script>
+</body>
+</html>

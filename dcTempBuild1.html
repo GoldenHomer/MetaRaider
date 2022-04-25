@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Dublin Core Template Builder</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Very Important for Internet Explorer compatibility-->
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/jquery-ui.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	
+	<div class="container">
+	
+		<select class="btn" id="select" onchange="location = this.options[this.selectedIndex].value;">
+			<option>Other template builders</option>
+			<option value="simpleTempBuild.html">Simple Darwin Core Template Builder</option>
+		</select>
+		
+		<div class="header clearfix">
+			<h1 class="text-muted">Dublin Core Template Builder</h1>
+		</div>
+		
+		<div class="btn-group" role="group">
+			<div class="btn-group">
+				<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+					Dublin Core Terms
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li id="0" value="abstract"><a class="term" href="#" title="A summary of the resource.">Abstract</a></li>
+					<li id="1" value="accessRights"><a class="term" href="#" title="Information about who can access the resource or an indication of its security status.">AccessRights</a></li>
+					<li id="2" value="accrualMethod"><a class="term" href="#" title="The method by which items are added to a collection.">AccrualMethod</a></li>
+					<li id="3" value="accrualPeriodicity"><a class="term" href="#" title="The frequency with which items are added to a collection.">AccrualPeriodicity</a></li>
+					<li id="4" value="accrualPolicy"><a class="term" href="#" title="The policy governing the addition of items to a collection.">AccrualPolicy</a></li>
+					<li id="5" value="alternative"><a class="term" href="#" title="An alternative name for the resource.">Alternative</a></li>
+					<li id="6" value="audience"><a class="term" href="#" title="A class of entity for whom the resource is intended or useful.">Audience</a></li>
+					<li id="7" value="available"><a class="term" href="#" title="Date (often a range) that the resource became or will become available.">Available</a></li>
+					<li id="8" value="bibliographicCitation"><a class="term" href="#" title="A bibliographic reference for the resource.">BibliographicCitation</a></li>
+					<li id="9" value="conformsTo"><a class="term" href="#" title="An established standard to which the described resource conforms.">ConformsTo</a></li>
+					<li id="10" value="contributor"><a class="term" href="#" title="An entity responsible for making contributions to the resource.">Contributor</a></li>
+					<li id="11" value="coverage"><a class="term" href="#" title="The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.">Coverage</a></li>
+					<li id="12" value="created"><a class="term" href="#" title="Date of creation of the resource.">Created</a></li>
+					<li id="13" value="creator"><a class="term" href="#" title="An entity primarily responsible for making the resource.">Creator</a></li>
+					<li id="14" value="date"><a class="term" href="#" title="A point or period of time associated with an event in the lifecycle of the resource.">Date</a></li>
+					<li id="15" value="dateAccepted"><a class="term" href="#" title="Date of acceptance of the resource.">DateAccepted</a></li>
+					<li id="16" value="dateCopyrighted"><a class="term" href="#" title="Date of copyright.">DateCopyrighted</a></li>
+					<li id="17" value="dateSubmitted"><a class="term" href="#" title="Date Submitted">DateSubmitted</a></li>
+					<li id="18" value="description"><a class="term" href="#" title="An account of the resource.">Description</a></li>
+					<li id="19" value="educationLevel"><a class="term" href="#" title="A class of entity, defined in terms of progression through an educational or training context, for which the described resource is intended.">EducationLevel</a></li>
+					<li id="20" value="extent"><a class="term" href="#" title="The size or duration of the resource.">Extent</a></li>
+					<li id="21" value="format"><a class="term" href="#" title="The file format, physical medium, or dimensions of the resource.">Format</a></li>
+					<li id="22" value="hasFormat"><a class="term" href="#" title="A related resource that is substantially the same as the pre-existing described resource, but in another format.">HasFormat</a></li>
+					<li id="23" value="hasPart"><a class="term" href="#" title="A related resource that is included either physically or logically in the described resource.">HasPart</a></li>
+					<li id="24" value="hasVersion"><a class="term" href="#" title="A related resource that is a version, edition, or adaptation of the described resource.">HasVersion</a></li>
+					<li id="25" value="identifier"><a class="term" href="#" title="An unambiguous reference to the resource within a given context.">Identifier</a></li>
+					<li id="26" value="instructionMethod"><a class="term" href="#" title="A process, used to engender knowledge, attitudes and skills, that the described resource is designed to support.">InstructionMethod</a></li>
+					<li id="27" value="isFormatOf"><a class="term" href="#" title="A related resource that is substantially the same as the described resource, but in another format.">IsFormatOf</a></li>
+					<li id="28" value="isPartOf"><a class="term" href="#" title="A related resource in which the described resource is physically or logically included.">IsPartOf</a></li>
+					<li id="29" value="isReferencedBy"><a class="term" href="#" title="A related resource that references, cites, or otherwise points to the described resource.">IsReferencedBy</a></li>
+					<li id="30" value="isReplacedBy"><a class="term" href="#" title="A related resource that supplants, displaces, or supersedes the described resource.">IsReplacedBy</a></li>
+					<li id="31" value="isRequiredBy"><a class="term" href="#" title="A related resource that requires the described resource to support its function, delivery, or coherence.">IsRequiredBy</a></li>
+					<li id="32" value="issued"><a class="term" href="#" title="Date of formal issuance (e.g., publication) of the resource.">Issued</a></li>
+					<li id="33" value="isVersionOf"><a class="term" href="#" title="A related resource of which the described resource is a version, edition, or adaptation.">IsVersionOf</a></li>
+					<li id="34" value="language"><a class="term" href="#" title="A language of the resource.">Language</a></li>
+					<li id="35" value="license"><a class="term" href="#" title="A legal document giving official permission to do something with the resource.">License</a></li>
+					<li id="36" value="mediator"><a class="term" href="#" title="An entity that mediates access to the resource and for whom the resource is intended or useful.">Mediator</a></li>
+					<li id="37" value="medium"><a class="term" href="#" title="The material or physical carrier of the resource.">Medium</a></li>
+					<li id="38" value="modified"><a class="term" href="#" title="Date on which the resource was changed.">Modified</a></li>
+					<li id="39" value="provenance"><a class="term" href="#" title="A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation.">Provenance</a></li>
+					<li id="40" value="publisher"><a class="term" href="#" title="An entity responsible for making the resource available.">Publisher</a></li>
+					<li id="41" value="references"><a class="term" href="#" title="A related resource that is referenced, cited, or otherwise pointed to by the described resource.">References</a></li>
+					<li id="42" value="relation"><a class="term" href="#" title="A related resource.">Relation</a></li>
+					<li id="43" value="replaces"><a class="term" href="#" title="A related resource that is supplanted, displaced, or superseded by the described resource.">Replaces</a></li>
+					<li id="44" value="requires"><a class="term" href="#" title="A related resource that is required by the described resource to support its function, delivery, or coherence.">Requires</a></li>
+					<li id="45" value="rights"><a class="term" href="#" title="Information about rights held in and over the resource.">Rights</a></li>
+					<li id="46" value="rightsHolders"><a class="term" href="#" title="A person or organization owning or managing rights over the resource.">RightsHolders</a></li>
+					<li id="47" value="source"><a class="term" href="#" title="A related resource from which the described resource is derived.">Source</a></li>
+					<li id="48" value="spatial"><a class="term" href="#" title="Spatial characteristics of the resource.">Spatial</a></li>
+					<li id="49" value="subject"><a class="term" href="#" title="The topic of the resource.">Subject</a></li>
+					<li id="50" value="tableOfContents"><a class="term" href="#" title="A list of subunits of the resource.">TableOfContents</a></li>
+					<li id="51" value="temporal"><a class="term" href="#" title="Temporal characteristics of the resource.">Temporal</a></li>
+					<li id="52" value="title"><a class="term" href="#" title="A name given to the resource.">Title</a></li>
+					<li id="53" value="type"><a class="term" href="#" title="The nature or genre of the resource.">Type</a></li>
+					<li id="54" value="valid"><a class="term" href="#" title="Date (often a range) of validity of a resource.">Valid</a></li>					
+				</ul>
+			</div>
+		</div>
+		
+	  	<!-- Display term fields. -->
+		<div id="term"></div>
+
+		
+		<button class="btn btn-success" id="PreviewButton" type="button">Preview File</button>
+		<button class="btn btn-success" id="lock" type="button"  onclick="lock()" style="display:none;">Lock Fields</button>
+		<button class="btn btn-success" id="unlock" type="button"  onclick="unlock()" style="display:none;">Unlock Fields</button>
+		<button class="btn btn-success" id="reset" type="button"  onclick="reset()" style="display:none;">Reset Fields</button>
+		<button class="btn btn-success" id="refresh" type="button"  onclick="document.location.reload(true);" style="display:none;">Refresh Page</button>
+		<br>
+		<br>
+		
+		<div class="panel panel-primary">
+			<div class="panel-heading">Import XML file</div>
+			<div class="panel-body">
+				<div class="alert alert-info" role="alert">Import a Dublin Core XML file to create fields.</div>
+				<input type="file" id="xmlFile" accept="text/xml"/>
+				<br>
+				<p id="xmlInfo"></p>
+				<pre id="xmlDisplay"></pre>
+			</div>
+		</div>
+		
+		<div class="well" id="generated" style="display:none">
+			<h2>File Output</h2>
+		  
+			<textarea id="ResultXml" style="width: 75%; height: 30em; margin-top: 10px" readonly="readonly"></textarea><br>
+		  
+			<h3>Name of download file:</h3>
+			<input type="text" id="fileName" value="">.xml
+			<a class="btn btn-info btn-sm" role="button" onclick="saveFileName()">Save file name</a>
+			<br>
+			<br>
+			<a href="#" class="btn btn-success" id="DownloadLink" role="button">Download file</a>
+		</div>
+	</div>
+	
+	<script src="js/processing.min.js"></script>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/templatebuilder/dcTerms/xmlTerms.js"></script>
+	<script src="js/templatebuilder/dcTerms/frontEndTerms.js"></script>
+	<script src="js/templatebuilder/dcTerms/import.js"></script>
+	<script src="js/jquery-ui-1.11.4.js"></script>
+	
+	<!-- Below shows the mouseover term descriptions-->
+	<script>
+		$(function(){
+			$(document).tooltip({
+				show: {duration: 1000},
+				position: {my: "right center", at: "left center"}
+			});
+		});
+	</script>
+	
+</body>
+</html>

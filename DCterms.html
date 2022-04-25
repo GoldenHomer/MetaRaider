@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Very Important for Internet Explorer compatibility-->
+	<meta HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+	<meta HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+	<meta NAME="ROBOTS" CONTENT="NONE"> 
+	<meta NAME="GOOGLEBOT" CONTENT="NOARCHIVE">
+	<meta charset="utf-8">
+	<title>Dublin Core Metadata Initiative (DCMI) Metadata Terms</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/jquery-ui.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	
+	<div class="container">
+	
+		<select style="background:#f6f693" onchange="location = this.options[this.selectedIndex].value;" style="float:right; margin-top: 20px;">
+			<option></option>
+			<option value="DCelements.html">Dublin Core Metadata Element Set</option>
+			<option value="simpleDWC.html">Simple Darwin Core</option>
+			<option value="DCtest.html">Darwin Core</option>
+			<option value="AgMES.html">AgMES</option>
+		</select>
+		
+		<div class="header clearfix">
+			<h1 class="text-muted">Dublin Core Terms to XML Translation</h1>
+		</div>
+		
+		<div class="btn-group" role="group">
+			<div class="btn-group">
+				<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+					Add Term 
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li id="0" value="abstract"><a class="term" href="#" title="A summary of the resource.">Abstract</a></li>
+					<li id="1" value="accessRights"><a class="term" href="#" title="Information about who can access the resource or an indication of its security status.">AccessRights</a></li>
+					<li id="2" value="accrualMethod"><a class="term" href="#" title="The method by which items are added to a collection.">AccrualMethod</a></li>
+					<li id="3" value="accrualPeriodicity"><a class="term" href="#" title="The frequency with which items are added to a collection.">AccrualPeriodicity</a></li>
+					<li id="4" value="accrualPolicy"><a class="term" href="#" title="The policy governing the addition of items to a collection.">AccrualPolicy</a></li>
+					<li id="5" value="alternative"><a class="term" href="#" title="An alternative name for the resource.">Alternative</a></li>
+					<li id="6" value="audience"><a class="term" href="#" title="A class of entity for whom the resource is intended or useful.">Audience</a></li>
+					<li id="7" value="available"><a class="term" href="#" title="Date (often a range) that the resource became or will become available.">Available</a></li>
+					<li id="8" value="bibliographicCitation"><a class="term" href="#" title="A bibliographic reference for the resource.">BibliographicCitation</a></li>
+					<li id="9" value="conformsTo"><a class="term" href="#" title="An established standard to which the described resource conforms.">ConformsTo</a></li>
+					<li id="10" value="contributor"><a class="term" href="#" title="An entity responsible for making contributions to the resource.">Contributor</a></li>
+					<li id="11" value="coverage"><a class="term" href="#" title="The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.">Coverage</a></li>
+					<li id="12" value="created"><a class="term" href="#" title="Date of creation of the resource.">Created</a></li>
+					<li id="13" value="creator"><a class="term" href="#" title="An entity primarily responsible for making the resource.">Creator</a></li>
+					<li id="14" value="date"><a class="term" href="#" title="A point or period of time associated with an event in the lifecycle of the resource.">Date</a></li>
+					<li id="15" value="dateAccepted"><a class="term" href="#" title="Date of acceptance of the resource.">DateAccepted</a></li>
+					<li id="16" value="dateCopyrighted"><a class="term" href="#" title="Date of copyright.">DateCopyrighted</a></li>
+					<li id="17" value="dateSubmitted"><a class="term" href="#" title="Date Submitted">DateSubmitted</a></li>
+					<li id="18" value="description"><a class="term" href="#" title="An account of the resource.">Description</a></li>
+					<li id="19" value="educationLevel"><a class="term" href="#" title="A class of entity, defined in terms of progression through an educational or training context, for which the described resource is intended.">EducationLevel</a></li>
+					<li id="20" value="extent"><a class="term" href="#" title="The size or duration of the resource.">Extent</a></li>
+					<li id="21" value="format"><a class="term" href="#" title="The file format, physical medium, or dimensions of the resource.">Format</a></li>
+					<li id="22" value="hasFormat"><a class="term" href="#" title="A related resource that is substantially the same as the pre-existing described resource, but in another format.">HasFormat</a></li>
+					<li id="23" value="hasPart"><a class="term" href="#" title="A related resource that is included either physically or logically in the described resource.">HasPart</a></li>
+					<li id="24" value="hasVersion"><a class="term" href="#" title="A related resource that is a version, edition, or adaptation of the described resource.">HasVersion</a></li>
+					<li id="25" value="identifier"><a class="term" href="#" title="An unambiguous reference to the resource within a given context.">Identifier</a></li>
+					<li id="26" value="instructionMethod"><a class="term" href="#" title="A process, used to engender knowledge, attitudes and skills, that the described resource is designed to support.">InstructionMethod</a></li>
+					<li id="27" value="isFormatOf"><a class="term" href="#" title="A related resource that is substantially the same as the described resource, but in another format.">IsFormatOf</a></li>
+					<li id="28" value="isPartOf"><a class="term" href="#" title="A related resource in which the described resource is physically or logically included.">IsPartOf</a></li>
+					<li id="29" value="isReferencedBy"><a class="term" href="#" title="A related resource that references, cites, or otherwise points to the described resource.">IsReferencedBy</a></li>
+					<li id="30" value="isReplacedBy"><a class="term" href="#" title="A related resource that supplants, displaces, or supersedes the described resource.">IsReplacedBy</a></li>
+					<li id="31" value="isRequiredBy"><a class="term" href="#" title="A related resource that requires the described resource to support its function, delivery, or coherence.">IsRequiredBy</a></li>
+					<li id="32" value="issued"><a class="term" href="#" title="Date of formal issuance (e.g., publication) of the resource.">Issued</a></li>
+					<li id="33" value="isVersionOf"><a class="term" href="#" title="A related resource of which the described resource is a version, edition, or adaptation.">IsVersionOf</a></li>
+					<li id="34" value="language"><a class="term" href="#" title="A language of the resource.">Language</a></li>
+					<li id="35" value="license"><a class="term" href="#" title="A legal document giving official permission to do something with the resource.">License</a></li>
+					<li id="36" value="mediator"><a class="term" href="#" title="An entity that mediates access to the resource and for whom the resource is intended or useful.">Mediator</a></li>
+					<li id="37" value="medium"><a class="term" href="#" title="The material or physical carrier of the resource.">Medium</a></li>
+					<li id="38" value="modified"><a class="term" href="#" title="Date on which the resource was changed.">Modified</a></li>
+					<li id="39" value="provenance"><a class="term" href="#" title="A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation.">Provenance</a></li>
+					<li id="40" value="publisher"><a class="term" href="#" title="An entity responsible for making the resource available.">Publisher</a></li>
+					<li id="41" value="references"><a class="term" href="#" title="A related resource that is referenced, cited, or otherwise pointed to by the described resource.">References</a></li>
+					<li id="42" value="relation"><a class="term" href="#" title="A related resource.">Relation</a></li>
+					<li id="43" value="replaces"><a class="term" href="#" title="A related resource that is supplanted, displaced, or superseded by the described resource.">Replaces</a></li>
+					<li id="44" value="requires"><a class="term" href="#" title="A related resource that is required by the described resource to support its function, delivery, or coherence.">Requires</a></li>
+					<li id="45" value="rights"><a class="term" href="#" title="Information about rights held in and over the resource.">Rights</a></li>
+					<li id="46" value="rightsHolders"><a class="term" href="#" title="A person or organization owning or managing rights over the resource.">RightsHolders</a></li>
+					<li id="47" value="source"><a class="term" href="#" title="A related resource from which the described resource is derived.">Source</a></li>
+					<li id="48" value="spatial"><a class="term" href="#" title="Spatial characteristics of the resource.">Spatial</a></li>
+					<li id="49" value="subject"><a class="term" href="#" title="The topic of the resource.">Subject</a></li>
+					<li id="50" value="tableOfContents"><a class="term" href="#" title="A list of subunits of the resource.">TableOfContents</a></li>
+					<li id="51" value="temporal"><a class="term" href="#" title="Temporal characteristics of the resource.">Temporal</a></li>
+					<li id="52" value="title"><a class="term" href="#" title="A name given to the resource.">Title</a></li>
+					<li id="53" value="type"><a class="term" href="#" title="The nature or genre of the resource.">Type</a></li>
+					<li id="54" value="valid"><a class="term" href="#" title="Date (often a range) of validity of a resource.">Valid</a></li>					
+				</ul>
+			</div>
+			<button type="button" class="btn btn-primary" id="termsBtn">Show All Terms</button>
+		</div>
+		
+	  	<!-- Display term fields. -->
+		<div class="row">
+			<div class="col-sm-12" id="term"></div>
+		</div>
+		
+		<!-- Hidden terms-->
+			<form class="form-horizontal" id="terms">
+				<div class="well well-lg">
+				  <h2>All Terms</h2>
+				  
+					<div class="row">
+					
+						<div class="col-sm-4">
+						
+						  <div class="form-group term">
+							<label for="abstract" class="col-sm-4 control-label">Abstract<img src='img/help.png' title='A summary of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="abstract">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="accessRights" class="col-sm-4 control-label">AccessRights<img src='img/help.png' title='Information about who can access the resource or an indication of its security status.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="accessRights">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="accrualMethod" class="col-sm-4 control-label">AccrualMethod<img src='img/help.png' title='The method by which items are added to a collection.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="accrualMethod">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="accrualPeriodicity" class="col-sm-4 control-label">AccrualPeriodicity<img src='img/help.png' title='The frequency with which items are added to a collection.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="accrualPeriodicity">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="accrualPolicy" class="col-sm-4 control-label">AccrualPolicy<img src='img/help.png' title='The policy governing the addition of items to a collection.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="accrualPolicy">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="alternative" class="col-sm-4 control-label">Alternative<img src='img/help.png' title='The distinction between titles and alternative titles is application-specific.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="alternative">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="audience" class="col-sm-4 control-label">Audience<img src='img/help.png' title='A class of entity for whom the resource is intended or useful.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="audience">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="available" class="col-sm-4 control-label">Available<img src='img/help.png' title='Date (often a range) that the resource became or will become available.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="available">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="bibliographicCitation" class="col-sm-4 control-label">BibliographicCitation<img src='img/help.png' title='A bibliographic reference for the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="bibliographicCitation">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="conformsTo" class="col-sm-4 control-label">ConformsTo<img src='img/help.png' title='An established standard to which the described resource conforms.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="conformsTo">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="contributor" class="col-sm-4 control-label">Contributor<img src='img/help.png' title='An entity responsible for making contributions to the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="contributorTerm">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="coverage" class="col-sm-4 control-label">Coverage<img src='img/help.png' title='The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="coverageTerm">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="created" class="col-sm-4 control-label">Created<img src='img/help.png' title='Date of creation of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="created">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="creator" class="col-sm-4 control-label">Creator<img src='img/help.png' title='An entity primarily responsible for making the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="creatorTerm">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="date" class="col-sm-4 control-label">Date<img src='img/help.png' title='A point or period of time associated with an event in the lifecycle of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="dateTerm">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="dateAccepted" class="col-sm-4 control-label">DateAccepted<img src='img/help.png' title='Date of acceptance of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="dateAccepted">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						
+						
+						
+						  <div class="form-group term">
+							<label for="dateCopyrighted" class="col-sm-4 control-label">DateCopyrighted<img src='img/help.png' title='Date of copyright.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="dateCopyrighted">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="dateSubmitted" class="col-sm-4 control-label">DateSubmitted<img src='img/help.png' title='Date of submission of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="dateSubmitted">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="description" class="col-sm-4 control-label">Description<img src='img/help.png' title='An account of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="descriptionTerm">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						</div>
+						
+						<div class="col-sm-4">	
+						
+						  <div class="form-group term">
+							<label for="educationLevel" class="col-sm-4 control-label">EducationLevel<img src='img/help.png' title='A class of entity, defined in terms of progression through an educational or training context, for which the described resource is intended.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="educationLevel">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="extent" class="col-sm-4 control-label">Extent<img src='img/help.png' title='The size or duration of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="extent">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="format" class="col-sm-4 control-label">Format<img src='img/help.png' title='The file format, physical medium, or dimensions of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="formatTerm">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="hasFormat" class="col-sm-4 control-label">HasFormat<img src='img/help.png' title='A related resource that is substantially the same as the pre-existing described resource, but in another format.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="hasFormat">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="hasPart" class="col-sm-4 control-label">HasPart<img src='img/help.png' title='A related resource that is included either physically or logically in the described resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="hasPart">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="hasVersion" class="col-sm-4 control-label">HasVersion<img src='img/help.png' title='A related resource that is a version, edition, or adaptation of the described resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="hasVersion">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="identifier" class="col-sm-4 control-label">Identifier<img src='img/help.png' title='An unambiguous reference to the resource within a given context.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="identifierTerm">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="instructionMethod" class="col-sm-4 control-label">InstructionMethod<img src='img/help.png' title='A process, used to engender knowledge, attitudes and skills, that the described resource is designed to support.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="instructionMethod">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="isFormatOf" class="col-sm-4 control-label">IsFormatOf<img src='img/help.png' title='A related resource that is substantially the same as the described resource, but in another format.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="isFormatOf">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="isPartOf" class="col-sm-4 control-label">IsPartOf<img src='img/help.png' title='A related resource in which the described resource is physically or logically included.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="isPartOf">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="isReferencedBy" class="col-sm-4 control-label">IsReferencedBy<img src='img/help.png' title='A related resource that references, cites, or otherwise points to the described resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="isReferencedBy">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="isReplacedBy" class="col-sm-4 control-label">IsReplacedBy<img src='img/help.png' title='A related resource that supplants, displaces, or supersedes the described resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="isReplacedBy">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="isRequiredBy" class="col-sm-4 control-label">IsRequiredBy<img src='img/help.png' title='A related resource that requires the described resource to support its function, delivery, or coherence.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="isRequiredBy">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="issued" class="col-sm-4 control-label">Issued<img src='img/help.png' title='Date of formal issuance (e.g., publication) of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="issued">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="isVersionOf" class="col-sm-4 control-label">IsVersionOf<img src='img/help.png' title='A related resource of which the described resource is a version, edition, or adaptation.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="isVersionOf">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="language" class="col-sm-4 control-label">Language<img src='img/help.png' title='A language of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="languageTerm">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="license" class="col-sm-4 control-label">License<img src='img/help.png' title='A legal document giving official permission to do something with the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="license">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="mediator" class="col-sm-4 control-label">Mediator<img src='img/help.png' title='An entity that mediates access to the resource and for whom the resource is intended or useful.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="mediator">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						</div>
+						
+						<div class="col-sm-4">
+						
+						  <div class="form-group term">
+							<label for="medium" class="col-sm-4 control-label">Medium<img src='img/help.png' title='The material or physical carrier of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="medium">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="modified" class="col-sm-4 control-label">Modified<img src='img/help.png' title='Date on which the resource was changed.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="modified">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="provenance" class="col-sm-4 control-label">Provenance<img src='img/help.png' title='A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="provenance">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="publisher" class="col-sm-4 control-label">Publisher<img src='img/help.png' title='An entity responsible for making the resource available.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="publisherTerm">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="references" class="col-sm-4 control-label">References<img src='img/help.png' title='A related resource that is referenced, cited, or otherwise pointed to by the described resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="references">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="relation" class="col-sm-4 control-label">Relation<img src='img/help.png' title='A related resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="relationTerm">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="replaces" class="col-sm-4 control-label">Replaces<img src='img/help.png' title='A related resource that is supplanted, displaced, or superseded by the described resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="replaces">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="requires" class="col-sm-4 control-label">Requires<img src='img/help.png' title='A related resource that is required by the described resource to support its function, delivery, or coherence.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="requires">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="rights" class="col-sm-4 control-label">Rights<img src='img/help.png' title='Information about rights held in and over the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="rightsTerm">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="rightsHolders" class="col-sm-4 control-label">RightsHolders<img src='img/help.png' title='A person or organization owning or managing rights over the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="rightsHolders">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="source" class="col-sm-4 control-label">Source<img src='img/help.png' title='A related resource from which the described resource is derived.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="sourceTerm">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="spatial" class="col-sm-4 control-label">Spatial<img src='img/help.png' title='Spatial characteristics of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="spatial">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="subject" class="col-sm-4 control-label">Subject<img src='img/help.png' title='The topic of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="tex t" class="form-control all" id="subjectTerm">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="tableOfContents" class="col-sm-4 control-label">TableOfContents<img src='img/help.png' title='A list of subunits of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="tableOfContents">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="temporal" class="col-sm-4 control-label">Temporal<img src='img/help.png' title='Temporal characteristics of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="temporal">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="title" class="col-sm-4 control-label">Title<img src='img/help.png' title='A name given to the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="titleTerm">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="type" class="col-sm-4 control-label">Type<img src='img/help.png' title='The nature or genre of the resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="typeTerm">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						  <div class="form-group term">
+							<label for="valid" class="col-sm-4 control-label">Valid<img src='img/help.png' title='Date (often a range) of validity of a resource.' height='20' width='20' style='margin-left: 5%'></img></label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control all" id="valid">
+							</div>
+							<a href='#' class='remove_field'>Remove</a>
+						  </div>
+						  
+						</div>
+						
+					</div>
+					
+				</div>
+			<!-- End hidden terms-->
+			</form>
+		
+		<div class="panel panel-primary">
+			<div class="panel-heading">Import XML file</div>
+			<div class="panel-body">
+				<div class="alert alert-info" role="alert">Import a Dublin Core xml file to create fields.</div>
+				<input type="file" id="xmlFile" accept="text/xml"/>
+				<br>
+				<p id="xmlInfo"></p>
+				<pre id="xmlDisplay"></pre>
+			</div>
+		</div>
+		
+		<button class="btn btn-success" id="XMLButton" type="button">Preview File</button>
+		<br>
+		<br>
+		
+		<div class="well" id="generated" style="display:none">
+		  <h2>File Output</h2>
+		  
+		  <textarea id="ResultXml" style="width: 75%; height: 30em; margin-top: 10px" readonly="readonly"></textarea><br>
+		  
+		  <h3>Name of download file:</h3>
+		  <input type="text" id="fileName" value="">.xml
+		  <a class="btn btn-info btn-sm" role="button" onclick="saveFileName()">Save file name</a>
+		  
+		  <br>
+		  <br>
+		  <a href="#" class="btn btn-success" id="DownloadLink" role="button">Download file</a>
+		</div>
+	</div>
+	
+	<script src="js/processing.min.js"></script>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/DublinCore/NewTerms/xmlTerms.js"></script>
+	<script src="js/DublinCore/NewTerms/frontEndTerms.js"></script>
+	<script src="js/DublinCore/NewTerms/import.js"></script>
+	<script src="js/jquery-ui-1.11.4.js"></script>
+	
+	<!-- Below shows the mouseover term descriptions-->
+	<script>
+		$(function(){
+			$(document).tooltip({
+				show: {duration: 1000},
+				position: {my: "right center", at: "left center"}
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Very Important for Internet Explorer compatibility-->
+	<meta NAME="ROBOTS" CONTENT="NONE"> 
+	<meta HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+	<meta HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+	<meta NAME="ROBOTS" CONTENT="NONE"> 
+	<meta NAME="GOOGLEBOT" CONTENT="NOARCHIVE">
+	<meta charset="utf-8">
+	<title>Darwin Core XML</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/jquery-ui.css">
+</head>
+
+<body>
+	<div class="container">
+		
+		<select style="background:#f6f693" onchange="location = this.options[this.selectedIndex].value;" style="float:right; margin-top: 20px;">
+			<option></option>
+			<option value="DCterms.html">Dublin Core Metadata Initiative (DCMI) Metadata Terms</option>
+			<option value="DCelements.html">Dublin Core Metadata Element Set</option>
+			<option value="DCtest.html">Darwin Core</option>
+			<option value="AgMES.html">AgMES</option>
+		</select>
+		
+		<div class="header clearfix">
+			<h1 class="text-muted">Simple Darwin Core to XML Translation</h1>
+		</div>
+		
+		<div class="btn-group" role="group">
+			<div class="btn-group">
+				<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+					Dublin Core Terms
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li id="0" value="accessRights"><a class="term" href="#" title="Information about who can access the resource or an indication of its security status. Access Rights may include information regarding access or restrictions based on privacy, security, or other policies.">AccessRights</a></li>
+					<li id="1" value="bibliographicCitation"><a class="term" href="#" title="A bibliographic reference for the resource as a statement indicating how this record should be cited (attributed) when used. Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible.">BibliographicCitation</a></li>
+					<li id="2" value="language"><a class="term" href="#" title="A language of the resource. Recommended best practice is to use a controlled vocabulary such as RFC 4646 [RFC4646].">Language</a></li>
+					<li id="3" value="license"><a class="term" href="#" title="A legal document giving official permission to do something with the resource.">License</a></li>
+					<li id="4" value="modified"><a class="term" href="#" title="The most recent date-time on which the resource was changed. For Darwin Core, recommended best practice is to use an encoding scheme, such as ISO 8601:2004(E).">Modified</a></li>
+					<li id="5" value="references"><a class="term" href="#" title="A related resource that is referenced, cited, or otherwise pointed to by the described resource.">References</a></li>
+					<li id="6" value="rightsHolders"><a class="term" href="#" title="A person or organization owning or managing rights over the resource.">RightsHolders</a></li>
+					<li id="7" value="type"><a class="term" href="#" title="The nature or genre of the resource. For Darwin Core, recommended best practice is to use the name of the class that defines the root of the record.">Type</a></li>					
+				</ul>
+			</div>
+		</div>
+		
+		<div class="btn-group" role="group">
+			<div class="btn-group">
+				<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Record-Level Terms 
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li id="8" value="institutionID"><a class="term" href="#" title="An identifier for the institution having custody of the object(s) or information referred to in the record.">InstitutionID</a></li>
+					<li id="9" value="collectionID"><a class="term" href="#" title="An identifier for the collection or dataset from which the record was derived.">CollectionID</a></li>
+					<li id="10" value="datasetID"><a class="term" href="#" title="An identifier for the set of data. May be a global unique identifier or an identifier specific to a collection or institution.">DatasetID</a></li>
+					<li id="11" value="institutionCode"><a class="term" href="#" title="The name (or acronym) in use by the institution having custody of the object(s) or information referred to in the record.">InstitutionCode</a></li>
+					<li id="12" value="collectionCode"><a class="term" href="#" title="The name, acronym, coden, or initialism identifying the collection or data set from which the record was derived.">CollectionCode</a></li>
+					<li id="13" value="datasetName"><a class="term" href="#" title="The name identifying the data set from which the record was derived.">DatasetName</a></li>
+					<li id="14" value="ownerInstitutionCode"><a class="term" href="#" title="The name (or acronym) in use by the institution having ownership of the object(s) or information referred to in the record.">OwnerInstitutionCode</a></li>
+					<li id="15" value="basisOfRecord"><a class="term" href="#" title="The specific nature of the data record.">BasisOfRecord</a></li>
+					<li id="16" value="informationWithheld"><a class="term" href="#" title="Additional information that exists, but that has not been shared in the given record.">InformationWithheld</a></li>
+					<li id="17" value="dataGeneralizations"><a class="term" href="#" title="Actions taken to make the shared data less specific or complete than in its original form. Suggests that alternative data of higher quality may be available on request.">DataGeneralizations</a></li>
+					<li id="18" value="dynamicProperties"><a class="term" href="#" title="A list of additional measurements, facts, characteristics, or assertions about the record. Meant to provide a mechanism for structured content.">DynamicProperties</a></li>
+					
+					<li>
+						<a class="trigger right-caret">Occurrence</a>
+							<ul class="dropdown-menu sub-menu">
+								<li id="19" value="occurrenceID"><a class="term" href="#" title="An identifier for the Occurrence (as opposed to a particular digital record of the occurrence). In the absence of a persistent global unique identifier, construct one from a combination of identifiers in the record that will most closely make the occurrenceID globally unique.">OccurrenceID</a></li>
+								<li id="20" value="catalogNumber"><a class="term" href="#" title="An identifier (preferably unique) for the record within the data set or collection.">CatalogNumber</a></li>
+								<li id="21" value="recordNumber"><a class="term" href="#" title="An identifier given to the Occurrence at the time it was recorded. Often serves as a link between field notes and an Occurrence record, such as a specimen collector's number.">RecordNumber</a></li>
+								<li id="22" value="recordedBy"><a class="term" href="#" title="A list (concatenated and separated) of names of people, groups, or organizations responsible for recording the original Occurrence. The primary collector or observer, especially one who applies a personal identifier (recordNumber), should be listed first.">RecordedBy</a></li>
+								<li id="23" value="individualCount"><a class="term" href="#" title="The number of individuals represented present at the time of the Occurrence.">IndividualCount</a></li>
+								<li id="24" value="organismQuantity"><a class="term" href="#" title="A number or enumeration value for the quantity of organisms.">OrganismQuantity</a></li>
+								<li id="25" value="organismQuantityType"><a class="term" href="#" title="The type of quantification system used for the quantity of organisms.">OrganismQuantityType</a></li>
+								<li id="26" value="sex"><a class="term" href="#" title="The sex of the biological individual(s) represented in the Occurrence. Recommended best practice is to use a controlled vocabulary.">Sex</a></li>
+								<li id="27" value="lifeStage"><a class="term" href="#" title="The age class or life stage of the biological individual(s) at the time the Occurrence was recorded. Recommended best practice is to use a controlled vocabulary.">LifeStage</a></li>
+								<li id="28" value="reproductiveCondition"><a class="term" href="#" title="The reproductive condition of the biological individual(s) represented in the Occurrence. Recommended best practice is to use a controlled vocabulary.">ReproductiveCondition</a></li>
+								<li id="29" value="behavior"><a class="term" href="#" title="A description of the behavior shown by the subject at the time the Occurrence was recorded. Recommended best practice is to use a controlled vocabulary.">Behavior</a></li>
+								<li id="30" value="establishmentMeans"><a class="term" href="#" title="The process by which the biological individual(s) represented in the Occurrence became established at the location. Recommended best practice is to use a controlled vocabulary.">EstablishmentMeans</a></li>
+								<li id="31" value="occurenceStatus"><a class="term" href="#" title="A statement about the presence or absence of a Taxon at a Location. Recommended best practice is to use a controlled vocabulary.">OccurenceStatus</a></li>
+								<li id="32" value="preparations"><a class="term" href="#" title="A list (concatenated and separated) of preparations and preservation methods for a specimen.">Preparations</a></li>
+								<li id="33" value="disposition"><a class="term" href="#" title="The current state of a specimen with respect to the collection identified in collectionCode or collectionID. Recommended best practice is to use a controlled vocabulary.">Disposition</a></li>
+								<li id="34" value="associatedMedia"><a class="term" href="#" title="A list (concatenated and separated) of identifiers (publication, global unique identifier, URI) of media associated with the Occurrence.">AssociatedMedia</a></li>
+								<li id="35" value="associatedReferences"><a class="term" href="#" title="A list (concatenated and separated) of identifiers (publication, bibliographic reference, global unique identifier, URI) of literature associated with the Occurrence.">AssociatedReferences</a></li>
+								<li id="36" value="associatedSequences"><a class="term" href="#" title="A list (concatenated and separated) of identifiers (publication, global unique identifier, URI) of genetic sequence information associated with the Occurrence.">AssociatedSequences</a></li>
+								<li id="37" value="associatedTaxa"><a class="term" href="#" title="A list (concatenated and separated) of identifiers or names of taxa and their associations with the Occurrence.">AssociatedTaxa</a></li>
+								<li id="38" value="otherCatalogNumbers"><a class="term" href="#" title="A list (concatenated and separated) of previous or alternate fully qualified catalog numbers or other human-used identifiers for the same Occurrence, whether in the current or any other data set or collection.">OtherCatalogNumbers</a></li>
+								<li id="39" value="occurrenceRemarks"><a class="term" href="#" title="Comments or notes about the Occurrence.">OccurrenceRemarks</a></li>
+							</ul>
+						<a class="trigger right-caret">Organism</a>
+							<ul class="dropdown-menu sub-menu">
+								<li id="40" value="organismID"><a class="term" href="#" title="An identifier for the Organism instance (as opposed to a particular digital record of the Organism). May be a globally unique identifier or an identifier specific to the data set.">OrganismID</a></li>
+								<li id="41" value="organismName"><a class="term" href="#" title="A textual name or label assigned to an Organism instance.">OrganismName</a></li>
+								<li id="42" value="organismScope"><a class="term" href="#" title="A description of the kind of Organism instance. Can be used to indicate whether the Organism instance represents a discrete organism or if it represents a particular type of aggregation. Recommended best practice is to use a controlled vocabulary.">OrganismScope</a></li>
+								<li id="43" value="associatedOccurrences"><a class="term" href="#" title="A list (concatenated and separated) of identifiers of other Occurrence records and their associations to this Occurrence.">AssociatedOccurrences</a></li>
+								<li id="44" value="associatedOrganisms"><a class="term" href="#" title="A list (concatenated and separated) of identifiers of other Organisms and their associations to this Organism.">AssociatedOrganisms</a></li>
+								<li id="45" value="previousIdentifications"><a class="term" href="#" title="A list (concatenated and separated) of previous assignments of names to the Organism.">PreviousIdentifications</a></li>
+								<li id="46" value="organismRemarks"><a class="term" href="#" title="Comments or notes about the Organism instance.">OrganismRemarks</a></li>
+							</ul>
+						<a class="trigger right-caret" href="#">MaterialSample</a>
+							<ul class="dropdown-menu sub-menu">
+								<li id="47" value="materialSampleID"><a class="term" href="#" title="An identifier for the MaterialSample (as opposed to a particular digital record of the material sample). In the absence of a persistent global unique identifier, construct one from a combination of identifiers in the record that will most closely make the materialSampleID globally unique.">MaterialSampleID</a></li>
+							</ul>
+						<a class="trigger right-caret" href="#">LivingSpecimen</a>
+							<ul class="dropdown-menu sub-menu">
+								<li id="48" value="livingMaterialSampleID"><a class="term" href="#" title="An identifier for the MaterialSample (as opposed to a particular digital record of the material sample). In the absence of a persistent global unique identifier, construct one from a combination of identifiers in the record that will most closely make the materialSampleID globally unique.">LivingSpecimen MaterialSampleID</a></li>
+							</ul>
+						<a class="trigger right-caret" href="#">PreservedSpecimen</a>
+							<ul class="dropdown-menu sub-menu">
+								<li id="49" value="preservedMaterialSampleID"><a class="term" href="#" title="An identifier for the MaterialSample (as opposed to a particular digital record of the material sample). In the absence of a persistent global unique identifier, construct one from a combination of identifiers in the record that will most closely make the materialSampleID globally unique.">PreservedSpecimen MaterialSampleID</a></li>
+							</ul>
+						<a class="trigger right-caret" href="#">FossilSpecimen</a>
+							<ul class="dropdown-menu sub-menu">
+								<li id="50" value="fossilMaterialSampleID"><a class="term" href="#" title="An identifier for the MaterialSample (as opposed to a particular digital record of the material sample). In the absence of a persistent global unique identifier, construct one from a combination of identifiers in the record that will most closely make the materialSampleID globally unique.">FossilSpecimen MaterialSampleID</a></li>
+							</ul>
+						<a class="trigger right-caret" href="#">Event</a>
+							<ul class="dropdown-menu sub-menu">
+								<li id="51" value="eventID"><a class="term" href="#" title="An identifier for the set of information associated with an Event (something that occurs at a place and time). May be a global unique identifier or an identifier specific to the data set.">EventID</a></li>
+								<li id="52" value="parentEventID"><a class="term" href="#" title="An identifier for the broader Event that groups this and potentially other Events.">ParentEventID</a></li>
+								<li id="53" value="fieldNumber"><a class="term" href="#" title="An identifier given to the event in the field. Often serves as a link between field notes and the Event.">FieldNumber</a></li>
+								<li id="54" value="eventDate"><a class="term" href="#" title="The date-time or interval during which an Event occurred. For occurrences, this is the date-time when the event was recorded. Not suitable for a time in a geological context. Recommended best practice is to use an encoding scheme, such as ISO 8601:2004(E).">EventDate</a></li>
+								<li id="55" value="eventTime"><a class="term" href="#" title="The time or interval during which an Event occurred. Recommended best practice is to use an encoding scheme, such as ISO 8601:2004(E).">EventTime</a></li>
+								<li id="56" value="startDayOfYear"><a class="term" href="#" title="The earliest ordinal day of the year on which the Event occurred (1 for January 1, 365 for December 31, except in a leap year, in which case it is 366).">StartDayOfYear</a></li>
+								<li id="57" value="endDayOfYear"><a class="term" href="#" title="The latest ordinal day of the year on which the Event occurred (1 for January 1, 365 for December 31, except in a leap year, in which case it is 366).">EndDayOfYear</a></li>
+								<li id="58" value="year"><a class="term" href="#" title="The four-digit year in which the Event occurred, according to the Common Era Calendar.">Year</a></li>
+								<li id="59" value="month"><a class="term" href="#" title="The ordinal month in which the Event occurred.">Month</a></li>
+								<li id="60" value="day"><a class="term" href="#" title="The integer day of the month on which the Event occurred.">Day</a></li>
+								<li id="61" value="verbatimEventDate"><a class="term" href="#" title="The verbatim original representation of the date and time information for an Event.">VerbatimEventDate</a></li>
+								<li id="62" value="habitat"><a class="term" href="#" title="A category or description of the habitat in which the Event occurred.">Habitat</a></li>
+								<li id="63" value="samplingProtocol"><a class="term" href="#" title="The name of, reference to, or description of the method or protocol used during an Event.">SamplingProtocol</a></li>
+								<li id="64" value="sampleSizeValue"><a class="term" href="#" title="A numeric value for a measurement of the size (time duration, length, area, or volume) of a sample in a sampling event.">SampleSizeValue</a></li>
+								<li id="65" value="sampleSizeUnit"><a class="term" href="#" title="The unit of measurement of the size (time duration, length, area, or volume) of a sample in a sampling event.">SampleSizeUnit</a></li>
+								<li id="66" value="samplingEffort"><a class="term" href="#" title="The amount of effort expended during an Event.">SamplingEffort</a></li>
+								<li id="67" value="fieldNotes"><a class="term" href="#" title="One of a) an indicator of the existence of, b) a reference to (publication, URI), or c) the text of notes taken in the field about the Event.">FieldNotes</a></li>
+								<li id="68" value="eventRemarks"><a class="term" href="#" title="Comments or notes about the Event.">EventRemarks</a></li>
+							</ul>
+						<a class="trigger right-caret" href="#">HumanObservation</a>
+							<ul class="dropdown-menu sub-menu">
+								<li id="69" value="humaneventID"><a class="term" href="#" title="An identifier for the set of information associated with an Human Event (something that occurs at a place and time). May be a global unique identifier or an identifier specific to the data set.">Human EventID</a></li>
+								<li id="70" value="humanparentEventID"><a class="term" href="#" title="An identifier for the broader Human Event that groups this and potentially other Events.">Human ParentEventID</a></li>
+								<li id="71" value="humanfieldNumber"><a class="term" href="#" title="An identifier given to the event in the field. Often serves as a link between field notes and the Human Event.">Human FieldNumber</a></li>
+								<li id="72" value="humaneventDate"><a class="term" href="#" title="The date-time or interval during which an Human Event occurred. For occurrences, this is the date-time when the event was recorded. Not suitable for a time in a geological context. Recommended best practice is to use an encoding scheme, such as ISO 8601:2004(E).">Human EventDate</a></li>
+								<li id="73" value="humaneventTime"><a class="term" href="#" title="The time or interval during which an Human Event occurred. Recommended best practice is to use an encoding scheme, such as ISO 8601:2004(E).">Human EventTime</a></li>
+								<li id="74" value="humanstartDayOfYear"><a class="term" href="#" title="The earliest ordinal day of the year on which the Human Event occurred (1 for January 1, 365 for December 31, except in a leap year, in which case it is 366).">Human StartDayOfYear</a></li>
+								<li id="75" value="humanendDayOfYear"><a class="term" href="#" title="The latest ordinal day of the year on which the Human Event occurred (1 for January 1, 365 for December 31, except in a leap year, in which case it is 366).">Human EndDayOfYear</a></li>
+								<li id="76" value="humanyear"><a class="term" href="#" title="The four-digit year in which the Human Event occurred, according to the Common Era Calendar.">Human Year</a></li>
+								<li id="77" value="humanmonth"><a class="term" href="#" title="The ordinal month in which the Human Event occurred.">Human Month</a></li>
+								<li id="78" value="humanday"><a class="term" href="#" title="The integer day of the month on which the Human Event occurred.">Human Day</a></li>
+								<li id="79" value="humanverbatimEventDate"><a class="term" href="#" title="The verbatim original representation of the date and time information for an Human Event.">Human VerbatimEventDate</a></li>
+								<li id="80" value="humanhabitat"><a class="term" href="#" title="A category or description of the habitat in which the Human Event occurred.">Human Habitat</a></li>
+								<li id="81" value="humansamplingProtocol"><a class="term" href="#" title="The name of, reference to, or description of the method or protocol used during an Human Event.">Human SamplingProtocol</a></li>
+								<li id="82" value="humansampleSizeValue"><a class="term" href="#" title="A numeric value for a measurement of the size (time duration, length, area, or volume) of a sample in a sampling Human event.">Human SampleSizeValue</a></li>
+								<li id="83" value="humansampleSizeUnit"><a class="term" href="#" title="The unit of measurement of the size (time duration, length, area, or volume) of a sample in a sampling Human event.">Human SampleSizeUnit</a></li>
+								<li id="84" value="humansamplingEffort"><a class="term" href="#" title="The amount of effort expended during an Human Event.">Human SamplingEffort</a></li>
+								<li id="85" value="humanfieldNotes"><a class="term" href="#" title="One of a) an indicator of the existence of, b) a reference to (publication, URI), or c) the text of notes taken in the field about the Human Event.">Human FieldNotes</a></li>
+								<li id="86" value="humaneventRemarks"><a class="term" href="#" title="Comments or notes about the Human Event.">Human EventRemarks</a></li>
+							</ul>
+						<a class="trigger right-caret" href="#">MachineObservation</a>
+							<ul class="dropdown-menu sub-menu">
+								<li id="87" value="machineeventID"><a class="term" href="#" title="An identifier for the set of information associated with an Machine Event (something that occurs at a place and time). May be a global unique identifier or an identifier specific to the data set.">Machine EventID</a></li>
+								<li id="88" value="machineparentEventID"><a class="term" href="#" title="An identifier for the broader Event that groups this and potentially other Machine Events.">Machine ParentEventID</a></li>
+								<li id="89" value="machinefieldNumber"><a class="term" href="#" title="An identifier given to the event in the field. Often serves as a link between field notes and the Machine Event.">Machine FieldNumber</a></li>
+								<li id="90" value="machineeventDate"><a class="term" href="#" title="The date-time or interval during which an Machine Event occurred. For occurrences, this is the date-time when the event was recorded. Not suitable for a time in a geological context. Recommended best practice is to use an encoding scheme, such as ISO 8601:2004(E).">Machine EventDate</a></li>
+								<li id="91" value="machineeventTime"><a class="term" href="#" title="The time or interval during which an Machine Event occurred. Recommended best practice is to use an encoding scheme, such as ISO 8601:2004(E).">Machine EventTime</a></li>
+								<li id="92" value="machinestartDayOfYear"><a class="term" href="#" title="The earliest ordinal day of the year on which the Machine Event occurred (1 for January 1, 365 for December 31, except in a leap year, in which case it is 366).">Machine StartDayOfYear</a></li>
+								<li id="93" value="machineendDayOfYear"><a class="term" href="#" title="The latest ordinal day of the year on which the Machine Event occurred (1 for January 1, 365 for December 31, except in a leap year, in which case it is 366).">Machine EndDayOfYear</a></li>
+								<li id="94" value="machineyear"><a class="term" href="#" title="The four-digit year in which the Machine Event occurred, according to the Common Era Calendar.">Machine Year</a></li>
+								<li id="95" value="machinemonth"><a class="term" href="#" title="The ordinal month in which the Machine Event occurred.">Machine Month</a></li>
+								<li id="96" value="machineday"><a class="term" href="#" title="The integer day of the month on which the Machine Event occurred.">Machine Day</a></li>
+								<li id="97" value="machineverbatimEventDate"><a class="term" href="#" title="The verbatim original representation of the date and time information for an Machine Event.">Machine VerbatimEventDate</a></li>
+								<li id="98" value="machinehabitat"><a class="term" href="#" title="A category or description of the habitat in which the Machine Event occurred.">Machine Habitat</a></li>
+								<li id="99" value="machinesamplingProtocol"><a class="term" href="#" title="The name of, reference to, or description of the method or protocol used during an Machine Event.">Machine SamplingProtocol</a></li>
+								<li id="100" value="machinesampleSizeValue"><a class="term" href="#" title="A numeric value for a measurement of the size (time duration, length, area, or volume) of a sample in a sampling Machine event.">Machine SampleSizeValue</a></li>
+								<li id="101" value="machinesampleSizeUnit"><a class="term" href="#" title="The unit of measurement of the size (time duration, length, area, or volume) of a sample in a sampling Machine event.">Machine SampleSizeUnit</a></li>
+								<li id="102" value="machinesamplingEffort"><a class="term" href="#" title="The amount of effort expended during an Machine Event.">Machine SamplingEffort</a></li>
+								<li id="103" value="machinefieldNotes"><a class="term" href="#" title="One of a) an indicator of the existence of, b) a reference to (publication, URI), or c) the text of notes taken in the field about the Machine Event.">Machine FieldNotes</a></li>
+								<li id="104" value="machineeventRemarks"><a class="term" href="#" title="Comments or notes about the Machine Event.">Machine EventRemarks</a></li>
+							</ul>
+						<a class="trigger right-caret" href="#">Location</a>
+							<ul class="dropdown-menu sub-menu">
+								<li id="105" value="locationID"><a class="term" href="#" title="An identifier for the set of location information (data associated with dcterms:Location). May be a global unique identifier or an identifier specific to the data set.">LocationID</a></li>
+								<li id="106" value="higherGeographyID"><a class="term" href="#" title="An identifier for the geographic region within which the Location occurred. Recommended best practice is to use an persistent identifier from a controlled vocabulary such as the Getty Thesaurus of Geographic Names.">HigherGeographyID</a></li>
+								<li id="107" value="higherGeography"><a class="term" href="#" title="A list (concatenated and separated) of geographic names less specific than the information captured in the locality term.">HigherGeography</a></li>
+								<li id="108" value="continent"><a class="term" href="#" title="The name of the continent in which the Location occurs. Recommended best practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names.">Continent</a></li>
+								<li id="109" value="waterbody"><a class="term" href="#" title="The name of the water body in which the Location occurs. Recommended best practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names.">Waterbody</a></li>
+								<li id="110" value="islandGroup"><a class="term" href="#" title="The name of the island group in which the Location occurs. Recommended best practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names.">IslandGroup</a></li>
+								<li id="111" value="island"><a class="term" href="#" title="The name of the island on or near which the Location occurs. Recommended best practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names.">Island</a></li>
+								<li id="112" value="country"><a class="term" href="#" title="The name of the country or major administrative unit in which the Location occurs. Recommended best practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names.">Country</a></li>
+								<li id="113" value="countryCode"><a class="term" href="#" title="The standard code for the country in which the Location occurs. Recommended best practice is to use ISO 3166-1-alpha-2 country codes.">CountryCode</a></li>
+								<li id="114" value="stateProvince"><a class="term" href="#" title="The name of the next smaller administrative region than country (state, province, canton, department, region, etc.) in which the Location occurs.">StateProvince</a></li>
+								<li id="115" value="county"><a class="term" href="#" title="The full, unabbreviated name of the next smaller administrative region than stateProvince (county, shire, department, etc.) in which the Location occurs.">County</a></li>
+								<li id="116" value="municipality"><a class="term" href="#" title="The full, unabbreviated name of the next smaller administrative region than county (city, municipality, etc.) in which the Location occurs. Do not use this term for a nearby named place that does not contain the actual location.">Municipality</a></li>
+								<li id="117" value="locality"><a class="term" href="#" title="The specific description of the place. Less specific geographic information can be provided in other geographic terms (higherGeography, continent, country, stateProvince, county, municipality, waterBody, island, islandGroup). This term may contain information modified from the original to correct perceived errors or standardize the description.">Locality</a></li>
+								<li id="118" value="verbatimLocality"><a class="term" href="#" title="The original textual description of the place.">VerbatimLocality</a></li>
+								<li id="119" value="minimumElevationInMeters"><a class="term" href="#" title="The lower limit of the range of elevation (altitude, usually above sea level), in meters.">MinimumElevationInMeters</a></li>
+								<li id="120" value="maximumElevationInMeters"><a class="term" href="#" title="The upper limit of the range of elevation (altitude, usually above sea level), in meters.">MaximumElevationInMeters</a></li>
+								<li id="121" value="verbatimElevation"><a class="term" href="#" title="The original description of the elevation (altitude, usually above sea level) of the Location.">VerbatimElevation</a></li>
+								<li id="122" value="minimumDepthInMeters"><a class="term" href="#" title="The lesser depth of a range of depth below the local surface, in meters.">MinimumDepthInMeters</a></li>
+								<li id="123" value="maximumDepthInMeters"><a class="term" href="#" title="The greater depth of a range of depth below the local surface, in meters.">MaximumDepthInMeters</a></li>
+								<li id="124" value="verbatimDepth"><a class="term" href="#" title="The original description of the depth below the local surface.">VerbatimDepth</a></li>
+								<li id="125" value="minimumDistanceAboveSurfaceInMeters"><a class="term" href="#" title="The lesser distance in a range of distance from a reference surface in the vertical direction, in meters. Use positive values for locations above the surface, negative values for locations below. If depth measures are given, the reference surface is the location given by the depth, otherwise the reference surface is the location given by the elevation.">MinimumDistanceAboveSurfaceInMeters</a></li>
+								<li id="126" value="maximumDistanceAboveSurfaceInMeters"><a class="term" href="#" title="The greater distance in a range of distance from a reference surface in the vertical direction, in meters. Use positive values for locations above the surface, negative values for locations below. If depth measures are given, the reference surface is the location given by the depth, otherwise the reference surface is the location given by the elevation.">MaximumDistanceAboveSurfaceInMeters</a></li>
+								<li id="127" value="locationAccordingTo"><a class="term" href="#" title="Information about the source of this Location information. Could be a publication (gazetteer), institution, or team of individuals.">LocationAccordingTo</a></li>
+								<li id="128" value="locationRemarks"><a class="term" href="#" title="Comments or notes about the Location.">LocationRemarks</a></li>
+								<li id="129" value="decimalLatitude"><a class="term" href="#" title="The geographic latitude (in decimal degrees, using the spatial reference system given in geodeticDatum) of the geographic center of a Location. Positive values are north of the Equator, negative values are south of it. Legal values lie between -90 and 90, inclusive.">DecimalLatitude</a></li>
+								<li id="130" value="decimalLongitude"><a class="term" href="#" title="The geographic longitude (in decimal degrees, using the spatial reference system given in geodeticDatum) of the geographic center of a Location. Positive values are east of the Greenwich Meridian, negative values are west of it. Legal values lie between -180 and 180, inclusive.">DecimalLongitude</a></li>
+								<li id="131" value="geodeticDatum"><a class="term" href="#" title="The ellipsoid, geodetic datum, or spatial reference system (SRS) upon which the geographic coordinates given in decimalLatitude and decimalLongitude as based. Recommended best practice is use the EPSG code as a controlled vocabulary to provide an SRS, if known. Otherwise use a controlled vocabulary for the name or code of the geodetic datum, if known. Otherwise use a controlled vocabulary for the name or code of the ellipsoid, if known. If none of these is known, use the value "unknown".">GeodeticDatum</a></li>
+								<li id="132" value="coordinateUncertaintyInMeters"><a class="term" href="#" title="The horizontal distance (in meters) from the given decimalLatitude and decimalLongitude describing the smallest circle containing the whole of the Location. Leave the value empty if the uncertainty is unknown, cannot be estimated, or is not applicable (because there are no coordinates). Zero is not a valid value for this term.">CoordinateUncertaintyInMeters</a></li>
+								<li id="133" value="coordinatePrecision"><a class="term" href="#" title="A decimal representation of the precision of the coordinates given in the decimalLatitude and decimalLongitude.">CoordinatePrecision</a></li>
+								<li id="134" value="pointRadiusSpatialFit"><a class="term" href="#" title="The ratio of the area of the point-radius (decimalLatitude, decimalLongitude, coordinateUncertaintyInMeters) to the area of the true (original, or most specific) spatial representation of the Location. Legal values are 0, greater than or equal to 1, or undefined. A value of 1 is an exact match or 100% overlap. A value of 0 should be used if the given point-radius does not completely contain the original representation. The pointRadiusSpatialFit is undefined (and should be left blank) if the original representation is a point without uncertainty and the given georeference is not that same point (without uncertainty). If both the original and the given georeference are the same point, the pointRadiusSpatialFit is 1.">PointRadiusSpatialFit</a></li>
+								<li id="135" value="verbatimCoordinates"><a class="term" href="#" title="The verbatim original spatial coordinates of the Location. The coordinate ellipsoid, geodeticDatum, or full Spatial Reference System (SRS) for these coordinates should be stored in verbatimSRS and the coordinate system should be stored in verbatimCoordinateSystem.">VerbatimCoordinates</a></li>
+								<li id="136" value="verbatimLatitude"><a class="term" href="#" title="The verbatim original latitude of the Location. The coordinate ellipsoid, geodeticDatum, or full Spatial Reference System (SRS) for these coordinates should be stored in verbatimSRS and the coordinate system should be stored in verbatimCoordinateSystem.">VerbatimLatitude</a></li>
+								<li id="137" value="verbatimCoordinateSystem"><a class="term" href="#" title="The spatial coordinate system for the verbatimLatitude and verbatimLongitude or the verbatimCoordinates of the Location. Recommended best practice is to use a controlled vocabulary.">VerbatimCoordinateSystem</a></li>
+								<li id="138" value="verbatimSRS"><a class="term" href="#" title="The ellipsoid, geodetic datum, or spatial reference system (SRS) upon which coordinates given in verbatimLatitude and verbatimLongitude, or verbatimCoordinates are based. Recommended best practice is use the EPSG code as a controlled vocabulary to provide an SRS, if known. Otherwise use a controlled vocabulary for the name or code of the geodetic datum, if known. Otherwise use a controlled vocabulary for the name or code of the ellipsoid, if known. If none of these is known, use the value "unknown".">VerbatimSRS</a></li>
+								<li id="139" value="footprintWKT"><a class="term" href="#" title="A Well-Known Text (WKT) representation of the shape (footprint, geometry) that defines the Location. A Location may have both a point-radius representation (see decimalLatitude) and a footprint representation, and they may differ from each other.">FootprintWKT</a></li>
+								<li id="140" value="footprintSRS"><a class="term" href="#" title="A Well-Known Text (WKT) representation of the Spatial Reference System (SRS) for the footprintWKT of the Location. Do not use this term to describe the SRS of the decimalLatitude and decimalLongitude, even if it is the same as for the footprintWKT - use the geodeticDatum instead.">FootprintSRS</a></li>
+								<li id="141" value="footprintSpatialFit"><a class="term" href="#" title="The ratio of the area of the footprint (footprintWKT) to the area of the true (original, or most specific) spatial representation of the Location. Legal values are 0, greater than or equal to 1, or undefined. A value of 1 is an exact match or 100% overlap. A value of 0 should be used if the given footprint does not completely contain the original representation. The footprintSpatialFit is undefined (and should be left blank) if the original representation is a point and the given georeference is not that same point. If both the original and the given georeference are the same point, the footprintSpatialFit is 1.">FootprintSpatialFit</a></li>
+								<li id="142" value="geoReferencedBy"><a class="term" href="#" title="A list (concatenated and separated) of names of people, groups, or organizations who determined the georeference (spatial representation) for the Location.">GeoReferencedBy</a></li>
+								<li id="143" value="geoReferencedDate"><a class="term" href="#" title="The date on which the Location was georeferenced. Recommended best practice is to use an encoding scheme, such as ISO 8601:2004(E).">GeoReferencedDate</a></li>
+								<li id="144" value="geoReferenceProtocol"><a class="term" href="#" title="A description or reference to the methods used to determine the spatial footprint, coordinates, and uncertainties.">GeoReferenceProtocol</a></li>
+								<li id="145" value="geoReferenceSources"><a class="term" href="#" title="A list (concatenated and separated) of maps, gazetteers, or other resources used to georeference the Location, described specifically enough to allow anyone in the future to use the same resources.">GeoReferenceSources</a></li>
+								<li id="146" value="geoReferenceVerificationStatus"><a class="term" href="#" title="A categorical description of the extent to which the georeference has been verified to represent the best possible spatial description. Recommended best practice is to use a controlled vocabulary.">GeoReferenceVerificationStatus</a></li>
+								<li id="147" value="geoReferenceRemarks"><a class="term" href="#" title="Notes or comments about the spatial description determination, explaining assumptions made in addition or opposition to the those formalized in the method referred to in georeferenceProtocol.">GeoReferenceRemarks</a></li>
+							</ul>
+						<a class="trigger right-caret" href="#">GeologicalContext</a>
+							<ul class="dropdown-menu sub-menu">
+								<li id="148" value="geologicalContextID"><a class="term" href="#" title="An identifier for the set of information associated with a GeologicalContext (the location within a geological context, such as stratigraphy). May be a global unique identifier or an identifier specific to the data set.">GeologicalContextID</a></li>
+								<li id="149" value="earliestEonOrLowestEonothem"><a class="term" href="#" title="The full name of the earliest possible geochronologic eon or lowest chrono-stratigraphic eonothem or the informal name ('Precambrian') attributable to the stratigraphic horizon from which the cataloged item was collected.">EarliestEonOrLowestEonothem</a></li>
+								<li id="150" value="latestEonOrHighestEonothem"><a class="term" href="#" title="The full name of the latest possible geochronologic eon or highest chrono-stratigraphic eonothem or the informal name ('Precambrian') attributable to the stratigraphic horizon from which the cataloged item was collected.">LatestEonOrHighestEonothem</a></li>
+								<li id="151" value="earliestEraOrLowestErathem"><a class="term" href="#" title="The full name of the earliest possible geochronologic era or lowest chronostratigraphic erathem attributable to the stratigraphic horizon from which the cataloged item was collected.">EarliestEraOrLowestErathem</a></li>
+								<li id="152" value="latestEraOrHighestErathem"><a class="term" href="#" title="The full name of the latest possible geochronologic era or highest chronostratigraphic erathem attributable to the stratigraphic horizon from which the cataloged item was collected.">LatestEraOrHighestErathem</a></li>
+								<li id="153" value="earliestPeriodOrLowestSystem"><a class="term" href="#" title="The full name of the earliest possible geochronologic period or lowest chronostratigraphic system attributable to the stratigraphic horizon from which the cataloged item was collected.">EarliestPeriodOrLowestSystem</a></li>
+								<li id="154" value="latestPeriodOrHighestSystem"><a class="term" href="#" title="The full name of the latest possible geochronologic period or highest chronostratigraphic system attributable to the stratigraphic horizon from which the cataloged item was collected.">LatestPeriodOrHighestSystem</a></li>
+								<li id="155" value="earliestEpochOrLowestSeries"><a class="term" href="#" title="The full name of the earliest possible geochronologic epoch or lowest chronostratigraphic series attributable to the stratigraphic horizon from which the cataloged item was collected.">EarliestEpochOrLowestSeries</a></li>
+								<li id="156" value="latestEpochOrHighestSeries"><a class="term" href="#" title="The full name of the latest possible geochronologic epoch or highest chronostratigraphic series attributable to the stratigraphic horizon from which the cataloged item was collected.">LatestEpochOrHighestSeries</a></li>
+								<li id="157" value="earliestAgeOrLowestStage"><a class="term" href="#" title="The full name of the earliest possible geochronologic age or lowest chronostratigraphic stage attributable to the stratigraphic horizon from which the cataloged item was collected.">EarliestAgeOrLowestStage</a></li>
+								<li id="158" value="latestAgeOrHighestStage"><a class="term" href="#" title="The full name of the latest possible geochronologic age or highest chronostratigraphic stage attributable to the stratigraphic horizon from which the cataloged item was collected.">LatestAgeOrHighestStage</a></li>
+								<li id="159" value="lowestBiostratigraphicZone"><a class="term" href="#" title="The full name of the lowest possible geological biostratigraphic zone of the stratigraphic horizon from which the cataloged item was collected.">LowestBiostratigraphicZone</a></li>
+								<li id="160" value="highestBiostratigraphicZone"><a class="term" href="#" title="The full name of the highest possible geological biostratigraphic zone of the stratigraphic horizon from which the cataloged item was collected.">HighestBiostratigraphicZone</a></li>
+								<li id="161" value="lithostratigraphicTerms"><a class="term" href="#" title="The combination of all litho-stratigraphic names for the rock from which the cataloged item was collected.">LithostratigraphicTerms</a></li>
+								<li id="162" value="group"><a class="term" href="#" title="The full name of the lithostratigraphic group from which the cataloged item was collected.">Group</a></li>
+								<li id="163" value="formation"><a class="term" href="#" title="The full name of the lithostratigraphic formation from which the cataloged item was collected.">Formation</a></li>
+								<li id="164" value="member"><a class="term" href="#" title="The full name of the lithostratigraphic member from which the cataloged item was collected.">Member</a></li>
+								<li id="165" value="bed"><a class="term" href="#" title="The full name of the lithostratigraphic bed from which the cataloged item was collected.">Bed</a></li>
+							</ul>
+						<a class="trigger right-caret" href="#">Identification</a>
+							<ul class="dropdown-menu sub-menu">
+								<li id="166" value="identificationID"><a class="term" href="#" title="An identifier for the Identification (the body of information associated with the assignment of a scientific name). May be a global unique identifier or an identifier specific to the data set.">IdentificationID</a></li>
+								<li id="167" value="identificationQualifier"><a class="term" href="#" title="A brief phrase or a standard term ('cf.', 'aff.') to express the determiner's doubts about the Identification.">IdentificationQualifier</a></li>
+								<li id="168" value="typeStatus"><a class="term" href="#" title="A list (concatenated and separated) of nomenclatural types (type status, typified scientific name, publication) applied to the subject.">TypeStatus</a></li>
+								<li id="169" value="identifiedBy"><a class="term" href="#" title="A list (concatenated and separated) of names of people, groups, or organizations who assigned the Taxon to the subject.">IdentifiedBy</a></li>
+								<li id="170" value="dateIdentified"><a class="term" href="#" title="The date on which the subject was identified as representing the Taxon. Recommended best practice is to use an encoding scheme, such as ISO 8601:2004(E).">DateIdentified</a></li>
+								<li id="171" value="identificationReferences"><a class="term" href="#" title="A list (concatenated and separated) of references (publication, global unique identifier, URI) used in the Identification.">IdentificationReferences</a></li>
+								<li id="172" value="identificationVerificationStatus"><a class="term" href="#" title="A categorical indicator of the extent to which the taxonomic identification has been verified to be correct. Recommended best practice is to use a controlled vocabulary such as that used in HISPID/ABCD.">IdentificationVerificationStatus</a></li>
+								<li id="173" value="identificationRemarks"><a class="term" href="#" title="Comments or notes about the Identification.">IdentificationRemarks</a></li>
+							</ul>
+						<a class="trigger right-caret" href="#">Taxon</a>
+							<ul class="dropdown-menu sub-menu">
+								<li id="174" value="taxonID"><a class="term" href="#" title="An identifier for the set of taxon information (data associated with the Taxon class). May be a global unique identifier or an identifier specific to the data set.">TaxonID</a></li>
+								<li id="175" value="scientificNameID"><a class="term" href="#" title="An identifier for the nomenclatural (not taxonomic) details of a scientific name.">ScientificNameID</a></li>
+								<li id="176" value="acceptedNameUsageID"><a class="term" href="#" title="An identifier for the name usage (documented meaning of the name according to a source) of the currently valid (zoological) or accepted (botanical) taxon.">AcceptedNameUsageID</a></li>
+								<li id="177" value="parentNameUsageID"><a class="term" href="#" title="An identifier for the name usage (documented meaning of the name according to a source) of the direct, most proximate higher-rank parent taxon (in a classification) of the most specific element of the scientificName.">ParentNameUsageID</a></li>
+								<li id="178" value="originalNameUsageID"><a class="term" href="#" title="An identifier for the name usage (documented meaning of the name according to a source) in which the terminal element of the scientificName was originally established under the rules of the associated nomenclaturalCode.">OriginalNameUsageID</a></li>
+								<li id="179" value="nameAccordingToID"><a class="term" href="#" title="An identifier for the source in which the specific taxon concept circumscription is defined or implied. See nameAccordingTo.">NameAccordingToID</a></li>
+								<li id="180" value="namePublishedInID"><a class="term" href="#" title="An identifier for the publication in which the scientificName was originally established under the rules of the associated nomenclaturalCode.">NamePublishedInID</a></li>
+								<li id="181" value="taxonConceptID"><a class="term" href="#" title="An identifier for the taxonomic concept to which the record refers - not for the nomenclatural details of a taxon.">TaxonConceptID</a></li>
+								<li id="182" value="scientificName"><a class="term" href="#" title="	The full scientific name, with authorship and date information if known. When forming part of an Identification, this should be the name in lowest level taxonomic rank that can be determined. This term should not contain identification qualifications, which should instead be supplied in the identificationQualifier term.">ScientificName</a></li>
+								<li id="183" value="acceptedNameUsage"><a class="term" href="#" title="	The full name, with authorship and date information if known, of the currently valid (zoological) or accepted (botanical) taxon.">AcceptedNameUsage</a></li>
+								<li id="184" value="parentNameUsage"><a class="term" href="#" title="The full name, with authorship and date information if known, of the direct, most proximate higher-rank parent taxon (in a classification) of the most specific element of the scientificName.">ParentNameUsage</a></li>
+								<li id="185" value="originalNameUsage"><a class="term" href="#" title="The taxon name, with authorship and date information if known, as it originally appeared when first established under the rules of the associated nomenclaturalCode. The basionym (botany) or basonym (bacteriology) of the scientificName or the senior/earlier homonym for replaced names.">OriginalNameUsage</a></li>
+								<li id="186" value="nameAccordingTo"><a class="term" href="#" title="The reference to the source in which the specific taxon concept circumscription is defined or implied - traditionally signified by the Latin "sensu" or "sec." (from secundum, meaning "according to"). For taxa that result from identifications, a reference to the keys, monographs, experts and other sources should be given.">NameAccordingTo</a></li>
+								<li id="187" value="namePublishedIn"><a class="term" href="#" title="A reference for the publication in which the scientificName was originally established under the rules of the associated nomenclaturalCode.">NamePublishedIn</a></li>
+								<li id="188" value="namePublishedInYear"><a class="term" href="#" title="The four-digit year in which the scientificName was published.">NamePublishedInYear</a></li>
+								<li id="189" value="higherClassification"><a class="term" href="#" title="A list (concatenated and separated) of taxa names terminating at the rank immediately superior to the taxon referenced in the taxon record.">HigherClassification</a></li>
+								<li id="190" value="kingdom"><a class="term" href="#" title="	The full scientific name of the kingdom in which the taxon is classified.">Kingdom</a></li>
+								<li id="191" value="phylum"><a class="term" href="#" title="The full scientific name of the phylum or division in which the taxon is classified.">Phylum</a></li>
+								<li id="192" value="class"><a class="term" href="#" title="The full scientific name of the class in which the taxon is classified.">Class</a></li>
+								<li id="193" value="order"><a class="term" href="#" title="The full scientific name of the order in which the taxon is classified.">Order</a></li>
+								<li id="194" value="family"><a class="term" href="#" title="The full scientific name of the family in which the taxon is classified.">Family</a></li>
+								<li id="195" value="genus"><a class="term" href="#" title="The full scientific name of the genus in which the taxon is classified.">Genus</a></li>
+								<li id="196" value="subgenus"><a class="term" href="#" title="The full scientific name of the subgenus in which the taxon is classified. Values should include the genus to avoid homonym confusion.">Subgenus</a></li>
+								<li id="197" value="specificEpithet"><a class="term" href="#" title="The name of the first or species epithet of the scientificName.">SpecificEpithet</a></li>
+								<li id="198" value="infraspecificEpithet"><a class="term" href="#" title="The name of the lowest or terminal infraspecific epithet of the scientificName, excluding any rank designation.">InfraSpecificEpithet</a></li>
+								<li id="199" value="taxonRank"><a class="term" href="#" title="The taxonomic rank of the most specific name in the scientificName. Recommended best practice is to use a controlled vocabulary.">TaxonRank</a></li>
+								<li id="200" value="verbatimTaxonRank"><a class="term" href="#" title="The taxonomic rank of the most specific name in the scientificName as it appears in the original record.">VerbatimTaxonRank</a></li>
+								<li id="201" value="scientificNameAuthorship"><a class="term" href="#" title="The authorship information for the scientificName formatted according to the conventions of the applicable nomenclaturalCode.">ScientificNameAuthorship</a></li>
+								<li id="202" value="vernacularName"><a class="term" href="#" title="A common or vernacular name.">VernacularName</a></li>
+								<li id="203" value="nomenclaturalCode"><a class="term" href="#" title="The nomenclatural code (or codes in the case of an ambiregnal name) under which the scientificName is constructed. Recommended best practice is to use a controlled vocabulary.">NomenclaturalCode</a></li>
+								<li id="204" value="taxonomicStatus"><a class="term" href="#" title="The status of the use of the scientificName as a label for a taxon. Requires taxonomic opinion to define the scope of a taxon. Rules of priority then are used to define the taxonomic status of the nomenclature contained in that scope, combined with the experts opinion. It must be linked to a specific taxonomic reference that defines the concept. Recommended best practice is to use a controlled vocabulary.">TaxonomicStatus</a></li>
+								<li id="205" value="nomenclaturalStatus"><a class="term" href="#" title="The status related to the original publication of the name and its conformance to the relevant rules of nomenclature. It is based essentially on an algorithm according to the business rules of the code. It requires no taxonomic opinion.">NomenclaturalStatus</a></li>
+								<li id="206" value="taxonRemarks"><a class="term" href="#" title="Comments or notes about the taxon or name.">TaxonRemarks</a></li>
+							</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+	  	<!-- Display fields -->
+		<div id="display"></div>
+		
+		<br>
+		<br>
+		<div class="panel panel-primary">
+			<div class="panel-heading">Import XML file</div>
+			<div class="panel-body">
+				<div class="alert alert-info" role="alert">Import a Simple Darwin Core xml file to create fields.</div>
+				<input type="file" id="xmlFile" accept="text/xml"/>
+				<br>
+				<p id="xmlInfo"></p>
+				<pre id="xmlDisplay"></pre>
+			</div>
+		</div>
+		
+		<br>
+		<button class="btn btn-success" id="DownloadButton" type="button">Preview File</button>
+		<br>
+		<br>
+		
+		<div class="well" id="generated" style="display:none">
+		  <h2>File Output</h2>
+		  
+		  <textarea id="ResultXml" style="width: 75%; height: 30em; margin-top: 10px" readonly="readonly"></textarea><br>
+		  
+		  <h3>Name of download file:</h3>
+		  <input type="text" id="fileName" value="default">.xml
+		  <a class="btn btn-info btn-sm" role="button" onclick="saveFileName()">Save file name</a>
+		  <br>
+		  <br>
+		  
+		  <a href="#" class="btn btn-success" id="DownloadLink" role="button">Download file</a>
+		</div>
+	</div>
+	
+	<script src="js/processing.min.js"></script>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/DarwinCore/SimpleDWCxml.js"></script>
+	<script src="js/DarwinCore/SimpleDWCfrontEnd.js"></script>
+	<script src="js/DarwinCore/import.js"></script>
+	<script src="js/jquery-ui-1.11.4.js"></script>
+	
+	<!-- Below shows the mouseover term descriptions-->
+	<script>
+		$(function(){
+			$(document).tooltip({
+				show: {duration: 1000},
+				position: {my: "right center", at: "left center"}
+			});
+		});
+	</script>
+</body>
+</html>
